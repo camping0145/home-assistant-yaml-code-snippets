@@ -1,0 +1,19 @@
+# This is how to make a fake lock in home assistant with the template entiy and a switch helper
+# Make a switch
+input_boolean:
+  fake_lock_state:
+    name: Fake Lock State
+    icon: mdi:lock
+# Then add the code
+template:
+  - lock:
+      - name: Home Lock
+        state: "{{ is_state('input_boolean.fake_lock_state', 'on') }}"
+        lock:
+          - action: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.fake_lock_state
+        unlock:
+          - action: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.fake_lock_state
