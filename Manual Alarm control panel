@@ -1,0 +1,9 @@
+# This is the code for the Manual Alarm control panel helper entiy in home assistant it is a alarm enity that will give you a alarm
+# You can google what the vaules do
+alarm_control_panel:
+  - platform: manual
+    name: Home Alarm
+    code: "2379"
+    arming_time: 60
+    delay_time: 20
+    trigger_time: 0
